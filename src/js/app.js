@@ -28,19 +28,30 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  let nombre = variables.name !== null ? variables.name : "Daenerys";
+  let apellido = variables.lastname !== null ? variables.lastname : "Targaryen";
+  let cargo = variables.role !== null ? variables.role : "Conquer";
+  let ciudad = variables.city !== null ? variables.city : "Santiago";
+  let pais = variables.country !== null ? variables.country : "Chile";
+  let twitter = variables.twitter !== null ? variables.twitter : "Twitter";
+  let github = variables.github !== null ? variables.github : "SpaceGianni";
+  let linkedin = variables.linkedin !== null ? variables.linkedin : "ginicode";
+  let instagram =
+    variables.instagram !== null ? variables.instagram : "baccellieregiannina";
+  //let social = variables.socialMediaPosition;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${nombre} ${apellido}</h1>
+          <h2>${cargo}</h2>
+          <h3>${ciudad} ${pais}</h3>
+          <ul class = "${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/${twitter}" target = "_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github}" target = "_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${linkedin}" target = "_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagram}" target = "_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
